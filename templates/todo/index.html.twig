@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+        {% block title %}Hello {{ controller_name }}!{% endblock %}
+        {% block body %}
+<div class="text-right">
+    <a href="/todo/create" class="btn btn-action">Create</a>>
+</div>
+<table class="table">
+<thead class="thead-dark">
+<tr>
+    <th scope="col">#</th>
+    <th scope="col">Todo name</th>
+    <th scope="col">Todo category</th>
+    <th scope="col">Todo description</th>
+    <th scope="col">Todo date</th>
+    <th scope="col">Todo create date</th>
+    <th scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for todo in todos %}
+<tr>
+    <th scope="row">{{ todo.id }}</th>
+    <td>{{ todo.name }}</td>
+    <td>{{ todo.category }}</td>
+    <td>{{ todo.description }}</td>
+    <td>{{ todo.todoDate }}</td>
+    <td>{{ todo.createDate | date('d-m-Y') }}</td>
+    <td>
+        <a href="{{ path('todo_view', {'id': todo.id}) }}" class="btn btn-success">View</a>
+        <a href="{{ path('todo_edit', {'id': todo.id}) }}" class="btn btn-default">Edit</a>
+        <a href="todos/delete/{{ todo.id }}" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+        {% endblock %}

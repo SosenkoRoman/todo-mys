@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+        {% block body %}
+<a href="{{ path('todo') }}" class="btn btn-default">Back To the List</a>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+<div class="for-group-row">
+<div class="col-sm-2"></div>
+<div class="col-sm-10">
+    <input type="submit" name="save" class="btn btn-success">
+</div>
+</div>
+
+        {{ form_end(form) }}
+        {% endblock %}
